@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.4
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=study_with_me
+      - MYSQL_ROOT_PASSWORD=Hop2005@
+    ports:
+      - '3308:3306'
