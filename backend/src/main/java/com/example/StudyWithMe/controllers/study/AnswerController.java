@@ -3,7 +3,7 @@ package com.example.StudyWithMe.controllers.exercise;
 import com.example.StudyWithMe.dataTransferObjects.exercise.AnswerDTO;
 import com.example.StudyWithMe.models.exercise.question.Question;
 import com.example.StudyWithMe.responses.ResponseObject;
-import com.example.StudyWithMe.responses.exercise.AnswerResponse;
+import com.example.StudyWithMe.responses.exercise.answer.AnswerResponse;
 import com.example.StudyWithMe.services.exercise.answer.IAnswerService;
 import com.example.StudyWithMe.services.exercise.question.IQuestionService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class AnswerController {
     private final IAnswerService answerService;
     private final IQuestionService questionService;
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<?> createAnswer(@ModelAttribute AnswerDTO answerDTO) {
         Question question = questionService.getQuestionDetail(answerDTO.getQuestionId());
         AnswerResponse newAnswer = answerService.createAnswer(answerDTO, question);

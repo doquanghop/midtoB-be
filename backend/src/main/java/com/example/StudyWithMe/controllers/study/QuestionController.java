@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +23,8 @@ public class QuestionController {
     private final IQuestionService questionService;
     private final ISubjectService subjectService;
 
-    @PostMapping("/create")
+    @PostMapping("")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<?> createQuestion(@ModelAttribute QuestionDTO questionDTO) {
         Subject subject = subjectService.findById(questionDTO.getSubjectId());
         QuestionResponse newQuestion = questionService.createQuestion(questionDTO, subject);
@@ -65,6 +67,7 @@ public class QuestionController {
     }
 
     @DeleteMapping("")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<?> deleteQuestion(@RequestParam Long questionId) {
         questionService.deleteQuestion(questionId);
         return ResponseEntity.ok(ResponseObject.success(HttpStatus.OK, "Delete question successfully", null));

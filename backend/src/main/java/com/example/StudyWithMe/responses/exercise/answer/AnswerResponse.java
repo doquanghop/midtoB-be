@@ -17,6 +17,7 @@ public class AnswerResponse {
     private Long userId;
     private String content;
     private List<AttachmentResponse> attachments;
+    private List<AnswerScoreResponse> scores;
     private LocalDateTime createdAt;
 
     public static AnswerResponse fromAnswer(Answer answer) {

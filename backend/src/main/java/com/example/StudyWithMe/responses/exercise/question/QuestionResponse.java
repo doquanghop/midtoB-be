@@ -1,7 +1,7 @@
 package com.example.StudyWithMe.responses.exercise;
 
-import com.example.StudyWithMe.models.exercise.question.Question;
-import com.example.StudyWithMe.models.exercise.subject.Subject;
+import com.example.StudyWithMe.models.study.question.Question;
+import com.example.StudyWithMe.responses.exercise.answer.AnswerResponse;
 import com.example.StudyWithMe.responses.user.profile.UserResponse;
 import lombok.Builder;
 import lombok.Data;
